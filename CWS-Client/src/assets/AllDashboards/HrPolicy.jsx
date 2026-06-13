@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
-const API_BASE = "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net";
+const API_BASE = "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net";
 const STORAGE_KEY = "hr_policy";
 const ACK_KEY = "policy_ack_employee";
 
