@@ -1,0 +1,16 @@
+.leave-balance-link,
+.leave-balance-link h6,
+.leave-balance-link p {
+  color: #3A5FBE !important;
+}
+
+.leave-balance-link:focus,
+.leave-balance-link:focus h6,
+.leave-balance-link:focus p {
+  color: #3A5FBE !important;
+  outline: none;
+}
+
+*:focus {
+  color: black;
+}
