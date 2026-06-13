@@ -134,7 +134,7 @@ const [selectedAbsentEmployee, setSelectedAbsentEmployee] = useState(null);
         setLoading(true);
         const token = localStorage.getItem("accessToken");
         const authAxios = axios.create({
-          baseURL: "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net",
+          baseURL: "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net",
           headers: { Authorization: `Bearer ${token}` },
         });
 
