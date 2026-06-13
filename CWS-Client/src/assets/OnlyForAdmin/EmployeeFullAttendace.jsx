@@ -37,7 +37,7 @@ function EmployeeFullAttendance() {
     const fetchHolidays = async () => {
       try {
         const token = localStorage.getItem("accessToken");
-        const response = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getHolidays", {
+        const response = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getHolidays", {
           headers: { Authorization: `Bearer ${token}` }
         });
         setHolidays(response.data);
@@ -75,7 +75,7 @@ function EmployeeFullAttendance() {
       try {
         const token = localStorage.getItem("accessToken");
         const currentYear = new Date().getFullYear();
-        const response = await axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/admin/weeklyoff/${currentYear}`, {
+        const response = await axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/admin/weeklyoff/${currentYear}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setWeeklyOffConfig(response.data.data);
@@ -172,7 +172,7 @@ function EmployeeFullAttendance() {
         });
 
         const empRes = await axios.get(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/employees/${empId}`,
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/employees/${empId}`,
         );
         setEmployee(empRes.data);
 
@@ -709,7 +709,7 @@ const statusBg = {
       console.log("Fetching breaks for:", formattedDate);
 
       const res = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/break/admin/${empId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/break/admin/${empId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
           params: { date: formattedDate },

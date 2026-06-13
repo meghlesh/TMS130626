@@ -34,7 +34,7 @@ function EmployeeProfileForAdmin({ employee: stateEmployee }) {
         try {
           const token = localStorage.getItem("accessToken");
           const res = await axios.get(
-            `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getEmployee/${empId}`,
+            `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getEmployee/${empId}`,
             {
               headers: { Authorization: `Bearer ${token}` },
             },
@@ -429,7 +429,7 @@ if (name.startsWith("bankDetails.")) {
       });
 
       await axios.put(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/employees/${employee._id || empId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/employees/${employee._id || empId}`,
         data,
         {
           headers: {
@@ -443,7 +443,7 @@ if (name.startsWith("bankDetails.")) {
       setIsEditing(false);
 
       const updated = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getEmployee/${employee._id || empId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getEmployee/${employee._id || empId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },
@@ -533,7 +533,7 @@ if (name.startsWith("bankDetails.")) {
 
     const url = fileName.startsWith("http")
       ? fileName
-      : `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/uploads/${fileName}`;
+      : `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/uploads/${fileName}`;
 
     const fileType = getFileType(fileName);
 
@@ -572,7 +572,7 @@ if (name.startsWith("bankDetails.")) {
     try {
       const token = localStorage.getItem("accessToken");
       const res = await axios.delete(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/deleteEmployee/${id}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/deleteEmployee/${id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },
@@ -624,7 +624,7 @@ if (name.startsWith("bankDetails.")) {
                   src={
                     employee?.image?.startsWith("http")
                       ? employee.image
-                      : `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/uploads/${employee.image}`
+                      : `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/uploads/${employee.image}`
                   }
                   alt="Profile Preview"
                   style={{
@@ -1196,7 +1196,7 @@ if (name.startsWith("bankDetails.")) {
                       href={
                         employee[field]?.startsWith("http")
                           ? employee[field]
-                          : `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/uploads/${employee[field]}`
+                          : `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/uploads/${employee[field]}`
                       }
                       target="_blank"
                       rel="noopener noreferrer"
@@ -1227,7 +1227,7 @@ if (name.startsWith("bankDetails.")) {
 
                 ) : employee.bankDetails?.passbookPdf ? (
                   <a
-                    href={`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/uploads/${employee.bankDetails.passbookPdf}`}
+                    href={`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/uploads/${employee.bankDetails.passbookPdf}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

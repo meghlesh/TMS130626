@@ -108,7 +108,7 @@ function TeamLeaderPerformances() {
     setIsLoading(true);
     try {
       const response = await fetch(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/performance/team-leader/${teamLeaderId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/performance/team-leader/${teamLeaderId}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -148,7 +148,7 @@ function TeamLeaderPerformances() {
       };
 
       const response = await fetch(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/performance/team-leader/${selectedPerformance._id}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/performance/team-leader/${selectedPerformance._id}`,
         {
           method: "PUT",
           headers: {

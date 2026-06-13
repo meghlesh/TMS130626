@@ -66,12 +66,12 @@ const AdminTeamsTMS = () => {
 
       const [teamsRes, managersRes, employeesRes, departmentsRes] =
         await Promise.all([
-          axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/teams"),
-          axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/managers", {
+          axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/teams"),
+          axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/managers", {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getEmployeeCount", {}),
-          axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getAllDepartments"),
+          axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getEmployeeCount", {}),
+          axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getAllDepartments"),
         ]);
       const normalizedDepartments = departmentsRes.data.departments.map((d) =>
         normalizeDepartment(d),
@@ -98,7 +98,7 @@ const AdminTeamsTMS = () => {
   };
   const fetchTeams = async () => {
     try {
-      const res = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/teams");
+      const res = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/teams");
       setAllTeams(res.data.data || []);
       console.log("all teams", res.data.data);
     } catch (error) {

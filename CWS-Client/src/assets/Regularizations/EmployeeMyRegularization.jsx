@@ -81,7 +81,7 @@ const location = useLocation();
     const fetchRequests = async () => {
       try {
         const res = await axios.get(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/regularization/my/${employeeId}`,
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/regularization/my/${employeeId}`,
         );
         // ✅ Sort newest first (based on createdAt or request date)
         // 🔒 STRICT last 3 months (rolling window)
@@ -182,7 +182,7 @@ const location = useLocation();
 
     try {
       await axios.delete(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/regularization/${id}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/regularization/${id}`,
       );
       setRequests(requests.filter((req) => req._id !== id));
     } catch (err) {

@@ -27,12 +27,12 @@ function AdminDashboardTMS() {
 
         /* EMPLOYEES */
         const empRes = await axios.get(
-          "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getAllEmployees",
+          "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getAllEmployees",
           { headers },
         );
 
         const benchEmp = await axios.get(
-          "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/bench-employees",
+          "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/bench-employees",
           { headers },
         );
 
@@ -55,7 +55,7 @@ function AdminDashboardTMS() {
 
         /* PROJECTS */
         const projectRes = await axios.get(
-          "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/projects",
+          "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/projects",
           { headers },
         );
 
@@ -64,10 +64,10 @@ function AdminDashboardTMS() {
         setTotalProjects(projectList.length);
 
         /* TEAMS */
-        // const teamRes = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/teams", {
+        // const teamRes = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/teams", {
         //   headers,
         // });
-        const teamRes = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/teams", {
+        const teamRes = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/teams", {
           headers,
         });
         const teamList = teamRes.data?.data || [];
@@ -75,7 +75,7 @@ function AdminDashboardTMS() {
         setTotalTeams(teamList.length);
 
         /* TASKS */
-        const taskRes = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/getall", {
+        const taskRes = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/getall", {
           headers,
         });
         const taskList = taskRes.data || [];

@@ -39,7 +39,7 @@ function AdminAllEmployeeTMS({ user }) {
         let response;
 
         if (role === "manager") {
-          url = `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/managers/${managerId}/assigned-employees`;
+          url = `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/managers/${managerId}/assigned-employees`;
           console.log("Fetching manager's employees from:", url);
           
           response = await axios.get(url, { headers });
@@ -49,7 +49,7 @@ function AdminAllEmployeeTMS({ user }) {
           setEmployees(employeesData);
           setFilteredTasks(employeesData);
         } else {
-          url = "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getAllEmployees";
+          url = "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getAllEmployees";
           console.log("Fetching all employees from:", url);
           
           const employeesRes = await axios.get(url, { headers });

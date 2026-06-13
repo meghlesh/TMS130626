@@ -72,7 +72,7 @@ function EditHolidayForm({ holidayData, onUpdate, onClose }) {
   //     const token = localStorage.getItem("accessToken");
 
   //     const res = await axios.put(
-  //       `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/holidays/${holidayData._id}`, // ✅ FIXED
+  //       `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/holidays/${holidayData._id}`, // ✅ FIXED
   //       { name, date },
   //       {
   //         headers: { Authorization: `Bearer ${token}` },
@@ -99,7 +99,7 @@ function EditHolidayForm({ holidayData, onUpdate, onClose }) {
     const token = localStorage.getItem("accessToken");
 
     const res = await axios.put(
-      `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/holidays/${holidayData._id}`,
+      `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/holidays/${holidayData._id}`,
       { name, date },
       {
         headers: { Authorization: `Bearer ${token}` },

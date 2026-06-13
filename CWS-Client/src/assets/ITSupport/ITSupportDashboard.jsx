@@ -1348,7 +1348,7 @@ textField: {
                     ? selectedTicket.attachment.map((file, i) => (
                         <div key={i}>
                           <a
-                            href={`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/uploads/${file}`}
+                            href={`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/uploads/${file}`}
                             download
                             className="btn btn-sm btn-outline-primary ms-2"
                           >

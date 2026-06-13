@@ -91,7 +91,7 @@ const EmployeeTeamsTMS = ({ user }) => {
 
       try {
         const empCountRes = await axios.get(
-          "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getEmployeeCount",
+          "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getEmployeeCount",
           { headers },
         );
         totalMembers = empCountRes.data?.totalEmployees || 0;
@@ -101,9 +101,9 @@ const EmployeeTeamsTMS = ({ user }) => {
 
       Promise.all([
         fetch(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/teams/employee/${user._id}/teams`,
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/teams/employee/${user._id}/teams`,
         ).then((res) => res.json()),
-        axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getAllDepartments"),
+        axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getAllDepartments"),
       ])
         .then(([teamRes, deptRes]) => {
           if (!teamRes.success) return;

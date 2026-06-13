@@ -177,7 +177,7 @@ useEffect(() => {
       const token = localStorage.getItem("accessToken");
   
       await axios.delete(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/soft/deleteEmployee/${id}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/soft/deleteEmployee/${id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -221,7 +221,7 @@ useEffect(() => {
     try {
       const token = localStorage.getItem("accessToken");
       const res = await axios.delete(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/deleteEmployee/${id}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/deleteEmployee/${id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },
@@ -265,7 +265,7 @@ useEffect(() => {
     const fetchEmployees = async () => {
       try {
         const token = localStorage.getItem("accessToken");
-        const res = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getAllEmployees", {
+        const res = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getAllEmployees", {
           headers: { Authorization: `Bearer ${token}` },
         });
         //Geetanjali
@@ -317,7 +317,7 @@ useEffect(() => {
     try {
       const token = localStorage.getItem("accessToken");
       await axios.put(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/users/${selectedEmployee._id}/assign-manager`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/users/${selectedEmployee._id}/assign-manager`,
         { managerId: selectedManagerId },
         { headers: { Authorization: `Bearer ${token}` } },
       );
@@ -366,7 +366,7 @@ useEffect(() => {
     try {
       const token = localStorage.getItem("accessToken");
       await axios.put(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/assignMd/${selectedManagerForMd._id}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/assignMd/${selectedManagerForMd._id}`,
         { mdId: selectedMdId },
         { headers: { Authorization: `Bearer ${token}` } }
       );

@@ -10,7 +10,7 @@ function EmployeeLeaveBalance({ user, fetchNotifications}) {
   useEffect(() => {
     if (!user?._id) return;
     axios
-      .get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/${user._id}`)
+      .get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/${user._id}`)
       .then((res) => setBalance(res.data))
       .catch((err) => console.error(err));
   }, [user, refresh]);

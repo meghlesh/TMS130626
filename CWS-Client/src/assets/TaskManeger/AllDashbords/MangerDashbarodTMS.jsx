@@ -27,7 +27,7 @@ function MangerDashbarodTMS() {
   const fetchUser = async () => {
     try {
       const token = localStorage.getItem("accessToken");
-      const res = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/me", {
+      const res = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/me", {
         headers: { Authorization: `Bearer ${token}` },
       });
       return res.data;
@@ -94,23 +94,23 @@ function MangerDashbarodTMS() {
 
         /* EMPLOYEES */
         const empRes = await axios.get(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/employees/manager/${user._id}`,
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/employees/manager/${user._id}`,
         );
 
         /* PROJECTS */
         const projectRes = await axios.get(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/projects/manager/${user._id}`,
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/projects/manager/${user._id}`,
         );
 
         /* TEAMS */
         const teamRes = await axios.get(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/teams/createdBy/${user._id}`,
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/teams/createdBy/${user._id}`,
           { headers: { Authorization: `Bearer ${token}` } },
         );
 
         /* TASKS */
         const taskRes = await axios.get(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/manager/emp/task/${user._id}/`,
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/manager/emp/task/${user._id}/`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -272,7 +272,7 @@ function MangerDashbarodTMS() {
         const token = localStorage.getItem("accessToken");
         
         const res = await axios.get(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/manager/${managerId}/available-employees`,
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/manager/${managerId}/available-employees`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }

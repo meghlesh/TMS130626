@@ -73,7 +73,7 @@ const EmployeeFeedback = () => {
 
       let recipients = [];
       // 1. Fetch HR users
-      const hrResponse = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/gethr", {
+      const hrResponse = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/gethr", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -90,7 +90,7 @@ const EmployeeFeedback = () => {
       // 2. Fetch current user's details to get manager and role
       try {
         const userResponse = await axios.get(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/users/${currentUser._id}`,
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/users/${currentUser._id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -130,7 +130,7 @@ if (
         // 4. If user is a manager, fetch their assigned employees
         if (userData.role && userData.role.toLowerCase() === "manager") {
           const employeesResponse = await axios.get(
-            `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/managers/${currentUser._id}/assigned-employees`,
+            `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/managers/${currentUser._id}/assigned-employees`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -156,7 +156,7 @@ if (
             });
           }
               const tlResponse = await axios.get(
-                "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/teamLead",
+                "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/teamLead",
                 {
                   headers: { Authorization: `Bearer ${token}` },
                 }
@@ -184,7 +184,7 @@ if (
         // rutuja code 
         if (userData.role && userData.role.toLowerCase() === "team_leader") {
           const teamMembersResponse = await axios.get(
-            `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/${currentUser._id}/members`,
+            `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/${currentUser._id}/members`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -231,7 +231,7 @@ if (
       }
 
       const response = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/feedback/employee/${currentUser._id}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/feedback/employee/${currentUser._id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -301,7 +301,7 @@ if (
       }
 
       const response = await axios.put(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/feedback/view/${feedbackId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/feedback/view/${feedbackId}`,
         {},
         {
           headers: {
@@ -581,7 +581,7 @@ if (
 
       if (editId) {
         response = await axios.put(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/feedback/edit/${editId}`,
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/feedback/edit/${editId}`,
           {
             title: formData.title,
             message: formData.message,
@@ -595,7 +595,7 @@ if (
         );
       } else {
         response = await axios.post(
-          "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/feedback/send",
+          "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/feedback/send",
           {
             receiverId: formData.receiverId,
             title: formData.title,
@@ -658,7 +658,7 @@ if (
     try {
       const token = localStorage.getItem("accessToken");
       if (token) {
-        await axios.delete(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/feedback/delete/${id}`, {
+        await axios.delete(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/feedback/delete/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 

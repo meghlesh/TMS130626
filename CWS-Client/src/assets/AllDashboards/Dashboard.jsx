@@ -162,7 +162,7 @@ const [notifications, setNotifications] = useState([]);
 
     let isMounted = true;
     axios
-      .get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/me", {
+      .get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/me", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -201,7 +201,7 @@ const [notifications, setNotifications] = useState([]);
 
     try {
       const res = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/notifications/${user._id}`
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/notifications/${user._id}`
       );
 
       const fifteenDaysAgo = new Date();
@@ -272,7 +272,7 @@ const [notifications, setNotifications] = useState([]);
       const refreshToken = localStorage.getItem("refreshToken");
 
       await axios.post(
-        "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/logout",
+        "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/logout",
         { refreshToken }
       );
       

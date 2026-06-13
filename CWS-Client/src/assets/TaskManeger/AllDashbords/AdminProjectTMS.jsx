@@ -20,7 +20,7 @@ function isWeeklyOff(date, weeklyOffs = { saturdays: [], sundayOff: true }) {
   }
   return null;
 }
-const API_URL = "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/projects";
+const API_URL = "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/projects";
 
 function AdminProjectTMS({ userData }) {
   const [searchInput, setSearchInput] = useState("");
@@ -108,7 +108,7 @@ function AdminProjectTMS({ userData }) {
 
   useEffect(() => {
     axios
-      .get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/managers/list")
+      .get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/managers/list")
       .then((res) => {
         console.log("Managers fetched:", res.data);
         setManagerList(res.data);
@@ -124,7 +124,7 @@ function AdminProjectTMS({ userData }) {
     const fetchWeeklyOffs = async () => {
       try {
         const res = await axios.get(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/admin/weeklyoff/${new Date().getFullYear()}`,
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/admin/weeklyoff/${new Date().getFullYear()}`,
         );
 
         const weeklyData = res.data?.data || {};
@@ -246,9 +246,9 @@ function AdminProjectTMS({ userData }) {
       let apiUrl;
       // Change API for specific statuses
       if (newStatus === "Completed") {
-        apiUrl = `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/projects/${projectId}/complete`;
+        apiUrl = `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/projects/${projectId}/complete`;
       } else if (newStatus === "Cancelled") {
-        apiUrl = `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/projects/${projectId}/cancel`;
+        apiUrl = `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/projects/${projectId}/cancel`;
       }
 
       await axios.put(apiUrl, { status: newStatus });
@@ -307,7 +307,7 @@ function AdminProjectTMS({ userData }) {
   const handleCreateSubmit = async (e) => {
     e.preventDefault();
 
-    const holidaysRes = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getHolidays");
+    const holidaysRes = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getHolidays");
     const holidays = holidaysRes.data?.data || holidaysRes.data || [];
     const isHoliday = (date) =>
       holidays.some((holiday) => {
@@ -531,7 +531,7 @@ function AdminProjectTMS({ userData }) {
 
   const handleEditSave = async (e) => {
     e.preventDefault();
-    const holidaysRes = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getHolidays");
+    const holidaysRes = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getHolidays");
     const holidays = holidaysRes.data?.data || holidaysRes.data || [];
 
     const isHoliday = (date) =>
@@ -692,7 +692,7 @@ function AdminProjectTMS({ userData }) {
     setCommentLoading(true);
     try {
       const response = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/project/${projectId}/comments`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/project/${projectId}/comments`,
       );
       setProjectComments(response.data.comments || []);
     } catch (error) {
@@ -716,7 +716,7 @@ function AdminProjectTMS({ userData }) {
 
     try {
       const res = await axios.post(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/project/${commentModalProject._id}/comment`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/project/${commentModalProject._id}/comment`,
         { comment: newComment },
         {
           headers: {
@@ -754,7 +754,7 @@ function AdminProjectTMS({ userData }) {
 
     try {
       const res = await axios.delete(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/project/${projectId}/comment/${commentId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/project/${projectId}/comment/${commentId}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -780,7 +780,7 @@ function AdminProjectTMS({ userData }) {
 
     try {
       const res = await axios.put(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/project/${projectId}/comment/${commentId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/project/${projectId}/comment/${commentId}`,
         { comment: newText },
         {
           headers: {

@@ -127,7 +127,7 @@ useEffect(() => {
 
 
 useEffect(() => {
-  fetch(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/apply/job/${jobId}`)
+  fetch(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/apply/job/${jobId}`)
     .then(res => res.json())
     .then(data => {
       const list = Array.isArray(data)
@@ -143,7 +143,7 @@ useEffect(() => {
 
 
 async function handleStatusChange(applicationId, newStatus) {
-  await axios.put(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/apply/${applicationId}`, {
+  await axios.put(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/apply/${applicationId}`, {
     status: newStatus,
   });
 

@@ -153,7 +153,7 @@ const isModalOpen = !!selected || showResumeModal;
     const token = localStorage.getItem("accessToken");
     try {
       const res = await fetch(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/interviews/manager/${managerId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/interviews/manager/${managerId}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -181,7 +181,7 @@ const isModalOpen = !!selected || showResumeModal;
     try {
       const token = localStorage.getItem("accessToken");
       const res = await fetch(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/interviews/managerUpdate/${selected._id}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/interviews/managerUpdate/${selected._id}`,
         {
           method: "PUT",
           body: JSON.stringify({

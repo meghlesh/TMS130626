@@ -80,7 +80,7 @@ function AdminCareer({ user }) {
 
   const fetchJobs = async () => {
     try {
-      const res = await fetch("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/jobs/");
+      const res = await fetch("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/jobs/");
       const data = await res.json();
       setJobs(data);
     } catch (err) {
@@ -283,14 +283,14 @@ function AdminCareer({ user }) {
       let res;
       if (editJobId) {
         res = await axios.put(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/jobs/${editJobId}`,
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/jobs/${editJobId}`,
           payload,
           { headers: { "Content-Type": "application/json" } },
         );
         await fetchJobs();
       } else {
         const res = await axios.post(
-          "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/jobs/",
+          "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/jobs/",
           payload,
           { headers: { "Content-Type": "application/json" } },
         );
@@ -375,7 +375,7 @@ function AdminCareer({ user }) {
     if (e) e.stopPropagation(); 
     if (!window.confirm("Are you sure you want to delete this job?")) return;
     try {
-      await axios.delete(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/jobs/${id}`);
+      await axios.delete(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/jobs/${id}`);
       setJobs((prev) => prev.filter((t) => t._id !== id));
       setFilteredJobs((prev) => prev.filter((t) => t._id !== id));
 
@@ -478,7 +478,7 @@ temp.sort((a, b) => {
   const getApplicantsInfo = async (jobId) => {
     try {
       setLoadingApplicants(true);
-      const res = await fetch(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/apply/job/${jobId}`, {
+      const res = await fetch(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/apply/job/${jobId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -588,7 +588,7 @@ const resetFilters = () => {
   console.log("applicants ", applicants);
   async function handleStatusChange(applicationId, newStatus) {
     try {
-      await axios.put(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/apply/${applicationId}`, {
+      await axios.put(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/apply/${applicationId}`, {
         status: newStatus,
       });
 

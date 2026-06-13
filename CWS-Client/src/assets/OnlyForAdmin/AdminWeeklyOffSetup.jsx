@@ -10,7 +10,7 @@ function AdminWeeklyOffSetup() {
     const fetchWeeklyOff = async () => {
       try {
         const res = await axios.get(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/admin/weeklyoff/${year}`,
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/admin/weeklyoff/${year}`,
         );
         setSaturdays(res.data?.data?.saturdays || []);
       } catch (err) {
@@ -29,7 +29,7 @@ function AdminWeeklyOffSetup() {
 
   const saveWeeklyOff = async () => {
     try {
-      await axios.post("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/admin/weeklyoff", {
+      await axios.post("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/admin/weeklyoff", {
         year,
         saturdays,
       });

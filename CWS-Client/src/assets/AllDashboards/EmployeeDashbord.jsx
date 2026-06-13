@@ -274,9 +274,9 @@ if (hrs < 4) {
     const fetchData = async () => {
       try {
         const [leaveRes, regRes] = await Promise.all([
-          axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/my/${user._id}`),
+          axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/my/${user._id}`),
           axios.get(
-            `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/regularization/my/${user._id}`,
+            `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/regularization/my/${user._id}`,
           ),
         ]);
 

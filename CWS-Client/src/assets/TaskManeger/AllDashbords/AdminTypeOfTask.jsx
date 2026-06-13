@@ -40,7 +40,7 @@ function AdminTypeOfTask() {
 
   const fetchTaskTypes = async () => {
     try {
-      const res = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/task-types");
+      const res = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/task-types");
       // setItems(res.data || []);
       const sorted = (res.data || []).sort(
         (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
@@ -75,7 +75,7 @@ function AdminTypeOfTask() {
   useEffect(() => {
     const fetchDepartments = async () => {
       try {
-        const res = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getAllDepartments");
+        const res = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getAllDepartments");
 
         console.log("Departments API:", res.data);
 
@@ -98,7 +98,7 @@ function AdminTypeOfTask() {
     try {
       setLoading(true);
 
-      await axios.post("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/task-types", {
+      await axios.post("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/task-types", {
         name: newName.trim(),
         description: newDesc.trim(),
         priority: newPriority,
@@ -127,7 +127,7 @@ function AdminTypeOfTask() {
     try {
       setLoading(true);
 
-      await axios.put(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/task-types/${editId}`, {
+      await axios.put(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/task-types/${editId}`, {
         name: newName.trim(),
         description: newDesc?.trim() || "",
         priority: newPriority,
@@ -204,7 +204,7 @@ function AdminTypeOfTask() {
     if (!ok) return;
 
     try {
-      await axios.delete(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/task-types/${id}`);
+      await axios.delete(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/task-types/${id}`);
        alert("Task type deleted successfully");
       fetchTaskTypes();
     } catch (error) {

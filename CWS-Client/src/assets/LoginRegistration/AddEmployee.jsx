@@ -691,7 +691,7 @@ const AddEmployee = () => {
       });
 
       const res = await axios.post(
-        "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/admin/add-employee",
+        "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/admin/add-employee",
         payload,
         {
           headers: { "Content-Type": "multipart/form-data" },

@@ -36,7 +36,7 @@ const ActivePolls = ({ user }) => {
   
     const fetchActivePoll = async () => {
       try {
-        const res = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/polls/active");
+        const res = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/polls/active");
   
         if (!isMounted) return;
   
@@ -146,7 +146,7 @@ const ActivePolls = ({ user }) => {
   useEffect(() => {
     const fetchPreviousPolls = async () => {
       try {
-        const res = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/polls/previous");
+        const res = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/polls/previous");
         setPreviousPolls(res.data);
       } catch (err) {
         console.error(err);
@@ -190,7 +190,7 @@ const ActivePolls = ({ user }) => {
 
       const token = localStorage.getItem("accessToken");
       const res = await axios.post(
-        "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/polls/create",
+        "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/polls/create",
         {
           question: pollQuestion,
           description: pollDescription,
@@ -200,7 +200,7 @@ const ActivePolls = ({ user }) => {
       );
 
       const activeRes = await axios.get(
-        "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/polls/active"
+        "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/polls/active"
       );
 
       setSavedPolls(activeRes.data ? [activeRes.data] : []);
@@ -239,7 +239,7 @@ const ActivePolls = ({ user }) => {
       const token = localStorage.getItem("accessToken");
 
       const response = await axios.put(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/polls/${editingPoll._id}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/polls/${editingPoll._id}`,
         {
           question: editQuestion,
           description: editDescription,
@@ -322,7 +322,7 @@ const ActivePolls = ({ user }) => {
     try {
       const token = localStorage.getItem("accessToken");
       await axios.delete(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/polls/${pollId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/polls/${pollId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -331,7 +331,7 @@ const ActivePolls = ({ user }) => {
       setPreviousPolls(prev => prev.filter(p => p?._id?.toString() !== pollId?.toString()));
 
       const activeRes = await axios.get(
-        "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/polls/active"
+        "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/polls/active"
       );
   
       setSavedPolls(activeRes.data ? [activeRes.data] : []);  
@@ -349,7 +349,7 @@ const ActivePolls = ({ user }) => {
     try {
       const token = localStorage.getItem("accessToken");
       const res = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/polls/${pollId}/voted-members`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/polls/${pollId}/voted-members`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -389,7 +389,7 @@ const ActivePolls = ({ user }) => {
 
 
       const res = await axios.post(
-        "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/polls/vote",
+        "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/polls/vote",
         { pollId, optionIndex, userId: loggedInUserId },
         { headers: { Authorization: `Bearer ${token}` } }
 

@@ -34,13 +34,13 @@ function EmployeeTeams({ user }) {
         
         if (user.role === "manager") {
           const res = await axios.get(
-            `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/managers/${userId}/assigned-employees`
+            `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/managers/${userId}/assigned-employees`
           );
           setEmployees(res.data.employees || []);
           setTeamMembers([]); 
         } else {
           const res = await axios.get(
-            `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/employee/${userId}/team-member`
+            `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/employee/${userId}/team-member`
           );
           
           if (res.data.success) {

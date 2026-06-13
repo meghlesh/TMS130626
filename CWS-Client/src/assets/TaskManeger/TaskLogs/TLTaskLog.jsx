@@ -204,7 +204,7 @@ const TLTaskLog = ({ user }) => {
         const dateStr = d.toISOString().split("T")[0];
 
         const res = await axios.get(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/daily-workload?date=${dateStr}`,
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/daily-workload?date=${dateStr}`,
           { headers: { Authorization: `Bearer ${token}` } },
         );
 
@@ -269,7 +269,7 @@ const TLTaskLog = ({ user }) => {
       const token = localStorage.getItem("accessToken");
 
       const res = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/daily-workload?date=${selectedDate}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/daily-workload?date=${selectedDate}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },
@@ -384,7 +384,7 @@ const TLTaskLog = ({ user }) => {
       }
 
       const response = await fetch(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/tl/${user._id}/logs`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/tl/${user._id}/logs`,
         {
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -472,7 +472,7 @@ const TLTaskLog = ({ user }) => {
       const token = localStorage.getItem("accessToken");
 
       const res = await axios.put(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/approve/${logId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/approve/${logId}`,
         {
           status: "Approved",
           rating: Number(rating),
@@ -501,7 +501,7 @@ const TLTaskLog = ({ user }) => {
       const token = localStorage.getItem("accessToken");
 
       await axios.put(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/approve/${logId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/approve/${logId}`,
         { status: "Rejected", rating: "", remarks: "" },
         { headers: { Authorization: `Bearer ${token}` } },
       );
@@ -522,13 +522,13 @@ const TLTaskLog = ({ user }) => {
       let url = "";
 
       if (workloadDate) {
-        url = `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/daily-workload?date=${workloadDate}`;
+        url = `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/daily-workload?date=${workloadDate}`;
       } else if (workloadWeek) {
         const weekStartDate = getStartDateOfWeek(workloadWeek);
-        url = `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/workload/weekly?date=${weekStartDate}`;
+        url = `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/workload/weekly?date=${weekStartDate}`;
       } else if (workloadMonth) {
         const [year, month] = workloadMonth.split("-");
-        url = `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/workload/monthly?year=${year}&month=${month}`;
+        url = `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/workload/monthly?year=${year}&month=${month}`;
       } else {
         console.warn("No filter selected");
         return;

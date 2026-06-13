@@ -111,7 +111,7 @@ useEffect(() => {
         const token = localStorage.getItem("accessToken");
         const headers = { Authorization: `Bearer ${token}` };
 
-        const userRes = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/me", {
+        const userRes = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/me", {
           headers,
         });
         const user = userRes.data;
@@ -142,7 +142,7 @@ useEffect(() => {
         const token = localStorage.getItem("accessToken");
         const headers = { Authorization: `Bearer ${token}` };
 
-        const response = await axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/${teamLeadId}/members`, {
+        const response = await axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/${teamLeadId}/members`, {
           headers
         });
 

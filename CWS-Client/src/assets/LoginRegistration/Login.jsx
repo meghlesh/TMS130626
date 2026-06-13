@@ -175,7 +175,7 @@ const getCurrentLocation = () => {
  // ✅ First ask for location
     const locationData = await getCurrentLocation();
     // ✅ First get location permission
- const response = await axios.post("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/login", {
+ const response = await axios.post("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/login", {
   email,
   password,
 });

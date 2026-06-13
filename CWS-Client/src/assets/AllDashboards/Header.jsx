@@ -53,7 +53,7 @@ function Header({ user, handleLogout, notifications, fetchNotifications}) {
                   user?.image
                     ? user.image.startsWith("http")
                       ? user.image
-                      : `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/uploads/${user.image}`
+                      : `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/uploads/${user.image}`
                     : "/myprofile.jpg"
                 }
                 alt="Profile"
@@ -74,7 +74,7 @@ function Header({ user, handleLogout, notifications, fetchNotifications}) {
                       user?.image
                         ? user.image.startsWith("http")
                           ? user.image
-                          : `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/uploads/${user.image}`
+                          : `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/uploads/${user.image}`
                         : "/myprofile.jpg"
                     }
                     alt="Profile"

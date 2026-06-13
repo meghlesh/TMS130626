@@ -68,7 +68,7 @@ function TLDashboardTMS() {
         if (!token || !id) return;
 
         const membersRes = await axios.get(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/${id}/members`,
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/${id}/members`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
 
@@ -96,7 +96,7 @@ function TLDashboardTMS() {
 
         // Fetch Teams
         const teamsRes = await axios.get(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/teams/user/${id}/teams`,
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/teams/user/${id}/teams`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
 
@@ -105,7 +105,7 @@ function TLDashboardTMS() {
 
         // Fetch Projects
         const projectsRes = await axios.get(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/${id}/projects`,
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/${id}/projects`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
 
@@ -153,7 +153,7 @@ function TLDashboardTMS() {
 
         // Fetch Tasks
         const tasksRes = await axios.get(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/tasks/${id}`,
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/tasks/${id}`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
 
@@ -224,7 +224,7 @@ function TLDashboardTMS() {
 
         // Use the new available employees API
         const res = await axios.get(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/${id}/available-employees`,
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/${id}/available-employees`,
           { 
             headers: { Authorization: `Bearer ${token}` }
           }

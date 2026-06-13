@@ -13,7 +13,7 @@ const TaskNotification = ({ userId }) => {
 
     try {
       const res = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task-notifications/${userId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task-notifications/${userId}`,
       );
 
       const notificationsArray = res.data;
@@ -35,7 +35,7 @@ const TaskNotification = ({ userId }) => {
 
   const handleNotificationClick = async (n) => {
     try {
-      await axios.put(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/tasknotifications/${n._id}/read`);
+      await axios.put(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/tasknotifications/${n._id}/read`);
 
       setNotifications((prev) =>
         prev.map((item) =>

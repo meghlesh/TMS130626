@@ -78,7 +78,7 @@ useEffect(() => {
   const fetchCounts = async () => {
     try {
       const res = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/regularization/my/${user._id}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/regularization/my/${user._id}`,
       );
 
       const requests = res.data || [];
@@ -139,7 +139,7 @@ useEffect(() => {
     const fetchWeeklyOffs = async () => {
       try {
         const res = await axios.get(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/admin/weeklyoff/${new Date().getFullYear()}`,
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/admin/weeklyoff/${new Date().getFullYear()}`,
         );
 
         const weeklyData = res.data?.data || res.data || {};
@@ -165,7 +165,7 @@ useEffect(() => {
     const fetchAttendance = async () => {
       try {
         const res = await axios.get(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/regularization/my/${user._id}`,
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/regularization/my/${user._id}`,
         );
         setAttendance(res.data);
         console.log(res.data);
@@ -438,7 +438,7 @@ useEffect(() => {
 
       // 1️⃣ Fetch existing leaves for the employee
       const leaveRes = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/my/${user._id}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/my/${user._id}`,
       );
       const leaves = leaveRes.data || [];
 
@@ -462,7 +462,7 @@ useEffect(() => {
       }
       // 2️⃣ Fetch holidays dynamically
       const currentYear = new Date().getFullYear();
-      const holidaysRes = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getHolidays");
+      const holidaysRes = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getHolidays");
       const holidays = holidaysRes.data.filter(
         (h) => new Date(h.date).getFullYear() === currentYear,
       );
@@ -484,7 +484,7 @@ useEffect(() => {
 
       // 3 Fetch existing regularization requests (✅ fixed link)
       const regRes = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/regularization/my/${user._id}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/regularization/my/${user._id}`,
       );
       const regularizations = regRes.data || [];
 

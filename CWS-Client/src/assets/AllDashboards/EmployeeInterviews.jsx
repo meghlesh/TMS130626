@@ -157,7 +157,7 @@ const formatTo12Hour = (time24) => {
     console.log("token", token);
     try {
       const res = await fetch(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/interviews/employee/${employeeId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/interviews/employee/${employeeId}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -185,7 +185,7 @@ const formatTo12Hour = (time24) => {
     const token = localStorage.getItem("accessToken");
     try {
       const res = await fetch(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/interviews/employee/${selected._id}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/interviews/employee/${selected._id}`,
         {
           method: "PUT",
           headers: {

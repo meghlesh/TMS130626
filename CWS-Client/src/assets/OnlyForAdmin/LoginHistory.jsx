@@ -38,7 +38,7 @@ const totalPages = Math.ceil(
   const fetchLoginHistory = async () => {
     try {
       const res = await axios.get(
-        "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/save-login-location"
+        "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/save-login-location"
       );
 
       setLoginHistory(res.data);

@@ -13,7 +13,7 @@ function Notification({ userId,notifications, fetchNotifications}) {
 
   //   try {
   //     const res = await axios.get(
-  //       `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/notifications/${userId}`,
+  //       `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/notifications/${userId}`,
   //     );
 
   //     // Filter last 15 days notifications
@@ -34,7 +34,7 @@ function Notification({ userId,notifications, fetchNotifications}) {
   const handleNotificationClick = async (n) => {
     try {
       // Mark as read in backend
-      await axios.put(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/notifications/${n._id}/read`);
+      await axios.put(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/notifications/${n._id}/read`);
 
 
       // Update state locally for instant UI feedback
@@ -225,7 +225,7 @@ else if (n.type === "Probation") {
   //   const fetchNotifications = async () => {
   //     try {
   //       const res = await axios.get(
-  //         `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/notifications/${userId}`
+  //         `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/notifications/${userId}`
   //       );
 
   //       // Filter last 15 days notifications

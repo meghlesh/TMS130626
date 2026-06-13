@@ -143,7 +143,7 @@ const getDerivedStatus = (task) => {
 ////komal code 31-01-2026
  const fetchAllTasks = async () => {
     try {
-      const res = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/getall");
+      const res = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/getall");
 
       const mappedTasks = res.data.map((task) => {
   const mappedTask = {

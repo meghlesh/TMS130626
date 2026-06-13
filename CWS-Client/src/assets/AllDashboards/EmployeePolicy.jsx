@@ -147,7 +147,7 @@ useEffect(() => {
   const fetchEmployeeAcknowledgements = async () => {
     try {
       const res = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/policy/employee-ack/${employeeId}`
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/policy/employee-ack/${employeeId}`
       );
 
       if (res.data.success) {
@@ -167,7 +167,7 @@ useEffect(() => {
       }
 
       const res = await axios.post(
-        "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/policy/acknowledge",
+        "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/policy/acknowledge",
         {
           policyId,
           employeeId,

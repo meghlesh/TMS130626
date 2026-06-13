@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 
-const API_URL = "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/gallery";
+const API_URL = "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/gallery";
 
 const CATEGORY_OPTIONS = [
   "Rewards & Recognition",

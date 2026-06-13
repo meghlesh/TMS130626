@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api",
+  baseURL: "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api",
 });
 
 API.interceptors.request.use(

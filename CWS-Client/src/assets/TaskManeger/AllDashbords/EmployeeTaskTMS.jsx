@@ -96,7 +96,7 @@ const EmployeeTaskTMS = ({ user }) => {
     if (!user?._id) return;
 
     axios
-      .get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/tasks/assigned/${user._id}`)
+      .get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/tasks/assigned/${user._id}`)
       .then((res) => {
         const apiTasks = res.data.tasks
           .filter((task) => task.status?.name !== "Assignment Pending") //  Filter out Assignment Pending
@@ -238,7 +238,7 @@ if (activeTask) {
       try {
         const token = localStorage.getItem("accessToken");
         if (token) {
-          const response = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/me", {
+          const response = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/me", {
             headers: { Authorization: `Bearer ${token}` },
           });
           setCurrentUser(response.data);
@@ -255,7 +255,7 @@ if (activeTask) {
   }, [user]);
 
   useEffect(() => {
-    fetch("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/unique")
+    fetch("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/unique")
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -293,7 +293,7 @@ if (activeTask) {
       }
 
       const res = await fetch(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/${selectedTask._id}/status`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/${selectedTask._id}/status`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -433,7 +433,7 @@ if (activeTask) {
     try {
       const token = localStorage.getItem("accessToken");
       const res = await axios.post(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/${commentModalTask._id}/comment`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/${commentModalTask._id}/comment`,
         { comment: newComment },
         {
           headers: {
@@ -494,7 +494,7 @@ if (activeTask) {
     try {
       const token = localStorage.getItem("accessToken");
       await axios.delete(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/${taskId}/comment/${commentId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/${taskId}/comment/${commentId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -541,7 +541,7 @@ if (activeTask) {
     try {
       const token = localStorage.getItem("accessToken");
       const res = await axios.put(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/${taskId}/comment/${commentId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/${taskId}/comment/${commentId}`,
         { comment: newText },
         {
           headers: {
@@ -637,7 +637,7 @@ if (activeTask) {
 
     try {
       const response = await axios.post(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/${taskId}/start`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/${taskId}/start`,
       );
       if (response.data.success) {
         const existingTask = allTasks.find((t) => t._id === taskId);
@@ -661,7 +661,7 @@ setTimerSeconds(previousSeconds);
   const handleStopTimer = async (taskId) => {
   try {
     const response = await axios.post(
-      `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/${taskId}/stop`
+      `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/${taskId}/stop`
     );
 
     if (response.data.success) {
@@ -752,7 +752,7 @@ setTimerSeconds(previousSeconds);
 
     try {
       const statusRes = await fetch(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/${task._id}/status`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/${task._id}/status`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -804,7 +804,7 @@ setTimerSeconds(previousSeconds);
     }
 
     try {
-      const res = await fetch(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/${task._id}/status`, {
+      const res = await fetch(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/${task._id}/status`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status: completedStatusId }),

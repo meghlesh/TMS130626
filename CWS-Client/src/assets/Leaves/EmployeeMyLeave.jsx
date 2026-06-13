@@ -31,7 +31,7 @@ function EmployeeMyLeave({ user, refreshKey,fetchNotifications}) {
   useEffect(() => {
     const fetchWeeklyOffs = async () => {
       try {
-        const res = await axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/admin/weeklyoff/${new Date().getFullYear()}`);
+        const res = await axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/admin/weeklyoff/${new Date().getFullYear()}`);
         const weeklyData = res.data?.data || res.data || {};
         const saturdayOffs = weeklyData.saturdays || [1, 3, 5];
         const sundayOff = true; // Sundays always off
@@ -82,7 +82,7 @@ function EmployeeMyLeave({ user, refreshKey,fetchNotifications}) {
     const fetchPublicHolidays = async () => {
       setLoadingHolidays(true);
       try {
-        const res = await axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getHolidays`);
+        const res = await axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getHolidays`);
         const holidays = res.data.map(h => h.date); // Extract YYYY-MM-DD strings
         setPublicHolidays(holidays);
       } catch (err) {
@@ -103,7 +103,7 @@ function EmployeeMyLeave({ user, refreshKey,fetchNotifications}) {
     const fetchLeaves = async () => {
       try {
         const res = await axios.get(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/my/${user._id}`
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/my/${user._id}`
         );
     console.log(res.data)
         const today = new Date();
@@ -144,7 +144,7 @@ function EmployeeMyLeave({ user, refreshKey,fetchNotifications}) {
           allIds.map(async (id) => {
             try {
               const r = await axios.get(
-                `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/users/${id}`
+                `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/users/${id}`
               );
               usersMap[id] = r.data?.name || "N/A";
             } catch {
@@ -290,7 +290,7 @@ function EmployeeMyLeave({ user, refreshKey,fetchNotifications}) {
   //     for (let leave of leaves) {
   //       try {
   //         const res = await axios.post(
-  //           "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/calculate",
+  //           "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/calculate",
   //           {
   //             // employeeId: leave.employee,
   //             employeeId:
@@ -351,7 +351,7 @@ function EmployeeMyLeave({ user, refreshKey,fetchNotifications}) {
   //   const prevLeaves = leaves;
   //   setLeaves((ls) => ls.filter((x) => x._id !== id));
   //   try {
-  //     const res = await fetch(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/${id}`, { method: "DELETE" });
+  //     const res = await fetch(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/${id}`, { method: "DELETE" });
   //     if (!res.ok) {
   //       setLeaves(prevLeaves);
   //       fetchNotifications();
@@ -400,7 +400,7 @@ function EmployeeMyLeave({ user, refreshKey,fetchNotifications}) {
   try {
 
     const res = await fetch(
-      `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/${id}`,
+      `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/${id}`,
       {
         method: "DELETE"
       }

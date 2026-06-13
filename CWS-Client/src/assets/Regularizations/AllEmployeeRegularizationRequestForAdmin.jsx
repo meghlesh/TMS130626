@@ -152,7 +152,7 @@ const actionModalRef = useRef(null);
       setLoading(true);
       const token = localStorage.getItem("accessToken");
       const res = await axios.get(
-        "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/regularization/all",
+        "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/regularization/all",
         {
           headers: { Authorization: `Bearer ${token}` },
         },
@@ -231,7 +231,7 @@ const actionModalRef = useRef(null);
     const token = localStorage.getItem("accessToken");
 
     const res = await axios.put(
-      `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/regularization/${id}/status`,
+      `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/regularization/${id}/status`,
       {
         status,
         actionReason: actionReason.trim(),

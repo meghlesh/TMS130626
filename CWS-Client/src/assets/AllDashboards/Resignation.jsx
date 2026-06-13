@@ -104,7 +104,7 @@ function Resignation() {
     setLoading(true);
     try {
       const token = getToken();
-      const response = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/resignation", {
+      const response = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/resignation", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -179,7 +179,7 @@ function Resignation() {
       };
 
       const response = await axios.put(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/resignation/${selected.originalData.resignationId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/resignation/${selected.originalData.resignationId}`,
         payload,
         {
           headers: {

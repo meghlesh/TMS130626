@@ -75,7 +75,7 @@ function QuickApplyLeave({ user }) {
     const fetchWeeklyOffs = async () => {
       try {
         const res = await axios.get(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/admin/weeklyoff/${new Date().getFullYear()}`,
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/admin/weeklyoff/${new Date().getFullYear()}`,
         );
 
         // 👇 Extract weekly off data safely
@@ -110,7 +110,7 @@ function QuickApplyLeave({ user }) {
       if (!user?.reportingManager) return;
       try {
         const res = await axios.get(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/users/${user.reportingManager}`,
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/users/${user.reportingManager}`,
         );
         setManager(res.data);
       } catch (err) {
@@ -258,7 +258,7 @@ function QuickApplyLeave({ user }) {
  // -------------------- 🚫 HOLIDAY VALIDATION (NEW) --------------------
       const currentYear = new Date().getFullYear();
       try {
-        const holidaysRes = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getHolidays");
+        const holidaysRes = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getHolidays");
         const holidays = holidaysRes.data.filter(
           (h) => new Date(h.date).getFullYear() === currentYear,
         );
@@ -289,7 +289,7 @@ function QuickApplyLeave({ user }) {
     try {
       // ✅ 1️⃣ Fetch existing leaves of employee
       const existingLeavesRes = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/my/${user._id}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/my/${user._id}`,
       );
       const existingLeaves = existingLeavesRes.data || [];
 
@@ -322,7 +322,7 @@ function QuickApplyLeave({ user }) {
         return;
       }
 
-      await axios.post("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/apply", {
+      await axios.post("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/apply", {
         employeeId: user._id,
         leaveType: form.leaveType,
         dateFrom: form.dateFrom,
@@ -397,7 +397,7 @@ function QuickApplyLeave({ user }) {
     const fetchBalances = async () => {
       if (!user?._id) return;
       try {
-        const res = await axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/${user._id}`);
+        const res = await axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/${user._id}`);
         setLeaveBalances({
           CL: res.data.casualLeaveBalance || 0,
           SL: res.data.sickLeaveBalance || 0

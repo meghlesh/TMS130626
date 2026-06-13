@@ -110,7 +110,7 @@ function EmployeeResignation({ user }) {
 
   async function fetchUser() {
     try {
-      const response = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/me", {
+      const response = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/me", {
         headers: { Authorization: `Bearer ${token}` },
       });
       return response.data;
@@ -126,7 +126,7 @@ function EmployeeResignation({ user }) {
       if (!userData) return;
 
       const response = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/emp/info/${userData.employeeId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/emp/info/${userData.employeeId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },
@@ -151,7 +151,7 @@ function EmployeeResignation({ user }) {
       if (!userData) return;
 
       const response = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/resignation/${userData.employeeId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/resignation/${userData.employeeId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },
@@ -202,7 +202,7 @@ function EmployeeResignation({ user }) {
       };
 
       const response = await axios.post(
-        "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/resignation/apply",
+        "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/resignation/apply",
         payload,
         {
           headers: {
@@ -237,7 +237,7 @@ function EmployeeResignation({ user }) {
 
     try {
       const response = await axios.delete(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/cancel/resignation/${resignationId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/cancel/resignation/${resignationId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },

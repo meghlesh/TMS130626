@@ -96,7 +96,7 @@ function TMSDashboard() {
   useEffect(() => {
     async function getUserById(id) {
       try {
-        const response = await fetch(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getEmployee/${id}`);
+        const response = await fetch(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getEmployee/${id}`);
         if (!response.ok)
           throw new Error(`Failed to fetch user: ${response.status}`);
         const data = await response.json();

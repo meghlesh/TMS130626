@@ -155,7 +155,7 @@ const [downloadUrl, setDownloadUrl] = useState("");
   
   useEffect(() => {
     axios
-      .get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/allEmp")
+      .get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/allEmp")
       .then((res) => {
         if (res.data.success) setEmployees(res.data.employees);
       })
@@ -164,7 +164,7 @@ const [downloadUrl, setDownloadUrl] = useState("");
 
   const fetchAllInterviews = () => {
     axios
-      .get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/interviews")
+      .get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/interviews")
       .then((res) => {
         if (res.data.success) {
           setAllInterviews(res.data.interviews);
@@ -209,7 +209,7 @@ useEffect(() => {
 
     try {
       const res = await axios.delete(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/interviewsDelete/${id}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/interviewsDelete/${id}`,
       );
 
       if (res.data.success) {
@@ -248,7 +248,7 @@ useEffect(() => {
     console.log("form data",formData)
     try {
       const res = await axios.put(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/interviewsUpdate/${id}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/interviewsUpdate/${id}`,
         formData, {
         headers: {
           "Content-Type": "multipart/form-data",
@@ -498,7 +498,7 @@ if (
     }
     const token = localStorage.getItem("accessToken");
     axios
-      .post("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/schedule-interview", formPayload, {
+      .post("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/schedule-interview", formPayload, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`

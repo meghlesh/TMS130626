@@ -58,7 +58,7 @@ function EventsAndHolidaysDashboard() {
     alert("Announcement delete successfully!");
     try {
       const token = localStorage.getItem("accessToken");
-      await axios.delete(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/announcements/${id}`, {
+      await axios.delete(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/announcements/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -177,7 +177,7 @@ useEffect(() => {
   useEffect(() => {
     const fetchAnnouncements = async () => {
       try {
-        const res = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/announcements/");
+        const res = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/announcements/");
         const data = res.data.data || [];
   
         //  KEEP API ORDER (LIFO)
@@ -195,7 +195,7 @@ useEffect(() => {
   useEffect(() => {
     const fetchHolidays = async () => {
       try {
-        const res = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getHolidays");
+        const res = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getHolidays");
 
         // Sort by date and store all holidays
         const sorted = res.data.sort(
@@ -216,7 +216,7 @@ useEffect(() => {
     alert("Holiday delete successfully!");
     try {
       const token = localStorage.getItem("accessToken");
-      await axios.delete(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/holidays/${id}`, {
+      await axios.delete(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/holidays/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setHolidayList((prev) => prev.filter((h) => h._id !== id));
@@ -233,7 +233,7 @@ useEffect(() => {
       try {
         const token = localStorage.getItem("accessToken");
         const res = await axios.get(
-          "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/events-for-employee",
+          "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/events-for-employee",
           {
             headers: { Authorization: `Bearer ${token}` },
           },
@@ -257,7 +257,7 @@ useEffect(() => {
     alert("Event delete successfully!");
     try {
       const token = localStorage.getItem("accessToken");
-      await axios.delete(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/events/${id}`, {
+      await axios.delete(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/events/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setEventsList((prev) => prev.filter((h) => h._id !== id));

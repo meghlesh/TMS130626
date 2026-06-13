@@ -488,7 +488,7 @@ const trapFocus = (e) => {
 
   useEffect(() => {
     axios
-      .get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/managers/list")
+      .get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/managers/list")
       .then((res) => setManagerList(res.data || []))
       .catch((err) => console.error(err));
   }, []);
@@ -843,7 +843,7 @@ if (statusName === "Delayed") {
 
     const fetchTasks = async () => {
       try {
-        const res = await axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/tasks/${managerId}`);
+        const res = await axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/tasks/${managerId}`);
 
         setAllTasks(res.data.tasks || []);
       } catch (error) {
@@ -861,7 +861,7 @@ useEffect(() => {
       const userId =
         user?._id || JSON.parse(localStorage.getItem("activeUser"))?._id;
 
-      const res = await axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/${userId}/projects`);
+      const res = await axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/${userId}/projects`);
 
       console.log("Projects API:", res.data);
 
@@ -882,7 +882,7 @@ useEffect(() => {
 async function fetchRequiredDetails() {
   try {
     // Tasks
-    const taskResponse = await axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/tasks/${user._id}`);
+    const taskResponse = await axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/tasks/${user._id}`);
     const tasks = (taskResponse.data.tasks || []).
       map(({ _id, taskName, projectName, status, assignedTo, dateOfExpectedCompletion }) => ({
         _id, taskName, projectName, status, assignedTo, dateOfExpectedCompletion,
@@ -890,7 +890,7 @@ async function fetchRequiredDetails() {
 
     // Projects
     const projectsResponse = await axios.get(
-      `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/${user._id}/projects`
+      `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/${user._id}/projects`
     );
 
     const projects = projectsResponse.data.projects.map((item) => {
@@ -957,7 +957,7 @@ const calculateStatus = (project) => {
       if (!user?._id) return;
   
       try {
-        const response = await fetch(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/${user._id}/members`);
+        const response = await fetch(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/${user._id}/members`);
         const data = await response.json();
   
         if (data.success) {

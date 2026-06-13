@@ -68,7 +68,7 @@ function MyAttendance({ employeeId }) {
     if (selectedRecord?.leaveRef?.reportingManager) {
       axios
         .get(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/users/${selectedRecord.leaveRef.reportingManager}`,
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/users/${selectedRecord.leaveRef.reportingManager}`,
         )
         .then((res) => setManager(res.data))
         .catch((err) => console.error("Error fetching manager:", err));
@@ -82,14 +82,14 @@ function MyAttendance({ employeeId }) {
      
         const [attRes, leaveRes, weeklyRes, holidayRes, regRes, lateRes] =
   await Promise.all([
-    axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/${employeeId}`),
-    axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/my/${employeeId}`),
+    axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/${employeeId}`),
+    axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/my/${employeeId}`),
     axios.get(
-      `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/admin/weeklyoff/${new Date().getFullYear()}`
+      `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/admin/weeklyoff/${new Date().getFullYear()}`
     ),
-    axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getHolidays`),
+    axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getHolidays`),
     axios.get(
-      `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/regularization/my/${employeeId}`
+      `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/regularization/my/${employeeId}`
     ),
   
   ]);
@@ -1322,7 +1322,7 @@ if (
     const fetchBreaks = async () => {
       try {
         const token = localStorage.getItem("accessToken");
-        const res = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/break/my", {
+        const res = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/break/my", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setBreakData(res.data);

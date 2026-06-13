@@ -35,7 +35,7 @@ function EmployeeProjectTMS({ employeeId }) {
       setError(null);
 
       const response = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/projects/employee/${employeeId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/projects/employee/${employeeId}`,
       );
 
       if (response.data.success && response.data.projects) {

@@ -533,7 +533,7 @@ function ManagerReportTMS({ user }) {
 
   useEffect(() => {
     axios
-      .get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/managers/list")
+      .get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/managers/list")
       .then((res) => setManagerList(res.data || []))
       .catch((err) => console.error(err));
   }, []);
@@ -912,7 +912,7 @@ function ManagerReportTMS({ user }) {
 
   //   const fetchTasks = async () => {
   //     try {
-  //       const res = await axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/tasks/${managerId}`);
+  //       const res = await axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/tasks/${managerId}`);
 
   //       setAllTasks(res.data.tasks || []);
   //     } catch (error) {
@@ -929,7 +929,7 @@ function ManagerReportTMS({ user }) {
         const token = localStorage.getItem("accessToken");
 
         // get logged-in manager
-        const userRes = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/me", {
+        const userRes = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/me", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -938,7 +938,7 @@ function ManagerReportTMS({ user }) {
 
         // SAME API AS MANAGER PROJECT FILE
         const res = await axios.get(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/projects/manager/${managerId}`,
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/projects/manager/${managerId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           },
@@ -956,10 +956,10 @@ function ManagerReportTMS({ user }) {
   // async function fetchRequiredDetails() {
   //   try {
   //     const empResponse = await axios.get(
-  //       `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/employees/manager/${user._id}`,
+  //       `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/employees/manager/${user._id}`,
   //     );
   //     const employeeList = empResponse.data.employees;
-  //     const taskResponse = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/getall");
+  //     const taskResponse = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/getall");
   //     const tasks = taskResponse.data.map(
   //       ({
   //         _id,
@@ -978,7 +978,7 @@ function ManagerReportTMS({ user }) {
   //       }),
   //     );
   //     const projectsResponse = await axios.get(
-  //       `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/projects/manager/${user._id}`,
+  //       `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/projects/manager/${user._id}`,
   //     );
   //     const projects = projectsResponse.data.data;
   //     setEmployeesTasks(tasks);
@@ -996,7 +996,7 @@ function ManagerReportTMS({ user }) {
       
       if (!managerId) return;
       
-      const taskRes = await axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/manager/emp/task/${managerId}/`, {
+      const taskRes = await axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/manager/emp/task/${managerId}/`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       
@@ -1018,12 +1018,12 @@ function ManagerReportTMS({ user }) {
       setAllTasks(allTasksList);
       
       const empResponse = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/employees/manager/${user._id}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/employees/manager/${user._id}`,
       );
       setTeamEmployees(empResponse.data.employees || []);
       
       const projectsResponse = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/projects/manager/${user._id}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/projects/manager/${user._id}`,
       );
       setManagerProjects(projectsResponse.data.data || []);
       

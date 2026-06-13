@@ -87,7 +87,7 @@ export default function EmployeeDashbordTMS({ user }) {
       try {
         setLoading(true);
         const [tasksRes] = await Promise.all([
-          axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/tasks/assigned/${employeeId}`),
+          axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/tasks/assigned/${employeeId}`),
         ]);
 
         if (tasksRes.data.tasks) {
@@ -142,7 +142,7 @@ export default function EmployeeDashbordTMS({ user }) {
       try {
         setLoading(true);
         const res = await axios.get(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/tasks/assigned/${user._id}`,
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/tasks/assigned/${user._id}`,
         );
 
         const tasks = res.data.tasks || [];

@@ -70,7 +70,7 @@ const modalRef = useRef(null);
       const token = localStorage.getItem("accessToken");
 
       const res = await axios.put(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/events/${eventData._id}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/events/${eventData._id}`,
         { name, date }, // ✅ FIXED
         {
           headers: {

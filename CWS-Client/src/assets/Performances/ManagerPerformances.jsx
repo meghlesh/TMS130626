@@ -111,7 +111,7 @@ function ManagerPerformances() {
       return;
     }
 
-    fetch(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/performance/manager/${managerId}`)
+    fetch(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/performance/manager/${managerId}`)
       .then((res) => res.json())
       .then((data) => {
         console.log("Manager API response:", data);
@@ -140,7 +140,7 @@ function ManagerPerformances() {
 
   //     // 🔁 API CALL (example)
   //     await axios.put(
-  //       `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/performance/${selectedPerformance._id}`,
+  //       `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/performance/${selectedPerformance._id}`,
   //       payload,
   //     );
   //     // ✅ Update UI locally

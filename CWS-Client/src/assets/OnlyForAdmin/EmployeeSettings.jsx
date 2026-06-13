@@ -60,7 +60,7 @@ function EmployeeSettings({ user, setUser }) {
   //     const accessToken = localStorage.getItem("accessToken"); // from your login response
 
   //     const res = await axios.post(
-  //       "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/change-password",
+  //       "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/change-password",
   //       {
   //         currentPassword,
   //         newPassword,

@@ -53,7 +53,7 @@ const VisualDiary = () => {
  
   useEffect(() => {
     axios
-      .get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/gallery")
+      .get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/gallery")
       .then((res) => {
         setGallery(res.data || []);
         setLoading(false);

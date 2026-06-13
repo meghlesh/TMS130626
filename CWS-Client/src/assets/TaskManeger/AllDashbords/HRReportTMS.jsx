@@ -304,7 +304,7 @@ function HRReportTMS() {
     /* 
   useEffect(() => {
     const fetchTasks = async () => {
-      const res = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/getall");
+      const res = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/getall");
       setAllTasks(res.data || []);
     };
 
@@ -436,7 +436,7 @@ if (statusName === "Delayed") {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/projects");
+        const res = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/projects");
         setProjects(res.data?.data || res.data || []);
       } catch (err) {
         console.error("Project fetch error:", err);
@@ -584,9 +584,9 @@ if (statusName === "Delayed") {
 
         // Fetch all data using your existing APIs change dip
         const [employeesRes, tasksRes, projectsRes] = await Promise.all([
-          axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getAllEmployees", { headers }),
-          axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/getall", { headers }),
-          axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/projects", { headers }),
+          axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getAllEmployees", { headers }),
+          axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/getall", { headers }),
+          axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/projects", { headers }),
         ]);
 
         // if (!employeesRes.ok || !tasksRes.ok || !projectsRes.ok) {

@@ -161,7 +161,7 @@ const [tl, setTl] = useState("");
   // Fetch employees for dropdown
   useEffect(() => {
     if (showModal) {
-      fetch("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/employees/teams")
+      fetch("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/employees/teams")
         .then((res) => res.json())
         .then((data) => {
           console.log("EMPLOYEES:", data.employees);
@@ -196,7 +196,7 @@ const [tl, setTl] = useState("");
 
   const fetchPerformanceRequests = async () => {
     try {
-      const res = await fetch("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/performance/getrequests", {
+      const res = await fetch("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/performance/getrequests", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
@@ -218,7 +218,7 @@ const [tl, setTl] = useState("");
     setPendingLoading(true);
     try {
       const res = await fetch(
-        "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/performance/admin/pending",
+        "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/performance/admin/pending",
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -253,7 +253,7 @@ const [tl, setTl] = useState("");
     setProcessingRequest(id);
     try {
       const res = await fetch(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/performance/${id}/approve`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/performance/${id}/approve`,
         {
           method: "POST",
           headers: {
@@ -294,7 +294,7 @@ const [tl, setTl] = useState("");
     setProcessingRequest(id);
     try {
       const res = await fetch(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/performance/${id}/reject`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/performance/${id}/reject`,
         {
           method: "POST",
           headers: {
@@ -329,7 +329,7 @@ const [tl, setTl] = useState("");
       return;
 
     try {
-      const res = await fetch(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/performance/${id}`, {
+      const res = await fetch(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/performance/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -503,7 +503,7 @@ const handleSectionChange = (section) => {
     };
 
     try {
-      const res = await fetch("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/performance", {
+      const res = await fetch("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/performance", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

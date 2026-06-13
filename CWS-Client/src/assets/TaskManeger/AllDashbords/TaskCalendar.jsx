@@ -19,7 +19,7 @@ function TaskCalendar({ employeeId }) {
     const fetchData = async () => {
       try {
         const [tasksRes] = await Promise.all([
-          axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/tasks/assigned/${employeeId}`),
+          axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/tasks/assigned/${employeeId}`),
         ]);
 
         setTasks(tasksRes.data.tasks || []);

@@ -455,7 +455,7 @@ const fetchLateCheckInHistory =
         );
 
       const res = await axios.get(
-        "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/manager-late-checkins",
+        "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/manager-late-checkins",
         {
           params: {
             from:
@@ -2323,7 +2323,7 @@ textField: {
   const token = localStorage.getItem("accessToken");
 
   const leaveRes = await axios.get(
-    "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/on-leave-employees",
+    "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/on-leave-employees",
     {
       params: {
         date: leaveDate || undefined,
@@ -2353,7 +2353,7 @@ onClick={async () => {
   const token = localStorage.getItem("accessToken");
 
   const leaveRes = await axios.get(
-    "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/on-leave-employees",
+    "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/on-leave-employees",
     {
       headers: {
         Authorization: `Bearer ${token}`,

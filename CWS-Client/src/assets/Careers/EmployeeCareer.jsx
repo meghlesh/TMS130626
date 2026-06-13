@@ -156,7 +156,7 @@ const [phone, setPhone] = useState("");
 
   const fetchJobs = async () => {
     try {
-      const res = await fetch("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/jobs/");
+      const res = await fetch("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/jobs/");
       const data = await res.json();
       setJobs(data);
     } catch (err) {
@@ -167,7 +167,7 @@ const [phone, setPhone] = useState("");
   const fetchAppliedJobs = async () => {
     try {
       const res = await fetch(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/apply/employee/${user._id}?applicantType=inhouse`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/apply/employee/${user._id}?applicantType=inhouse`,
       );
 
       if (!res.ok) throw new Error("Failed to fetch applied jobs");
@@ -183,7 +183,7 @@ const [phone, setPhone] = useState("");
   const fetchRefferedJobs = async () => {
     try {
       const res = await fetch(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/apply/employee/${user._id}?applicantType=referral`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/apply/employee/${user._id}?applicantType=referral`,
       );
 
       if (!res.ok) throw new Error("Failed to fetch applied jobs");
@@ -197,7 +197,7 @@ const [phone, setPhone] = useState("");
     }
   };
   const createApplication = (formData) =>
-    axios.post("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/apply", formData, {
+    axios.post("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/apply", formData, {
       headers: { "Content-Type": "multipart/form-data" },
     });
 

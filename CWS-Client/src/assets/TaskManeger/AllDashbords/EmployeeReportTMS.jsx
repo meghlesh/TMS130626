@@ -66,7 +66,7 @@ function EmployeeReportTMS({ employeeId }) {
     if (!employeeId) return;
 
     axios
-      .get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/tasks/assigned/${employeeId}`)
+      .get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/tasks/assigned/${employeeId}`)
       .then((res) => {
         const apiTasks = res.data.tasks.map((task) => ({
           _id: task._id,
@@ -282,7 +282,7 @@ function EmployeeReportTMS({ employeeId }) {
       setLoadingProjects(true);
 
       const res = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/projects/employee/${employeeId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/projects/employee/${employeeId}`,
       );
 
       if (res.data.success) {
@@ -306,7 +306,7 @@ function EmployeeReportTMS({ employeeId }) {
   const fetchDelayedTasks = async () => {
     try {
       setLoadingDelayedTasks(true);
-      const res = await axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/tasks/assigned/${employeeId}`);
+      const res = await axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/tasks/assigned/${employeeId}`);
   
       if (res.data.tasks) {
         const today = new Date();
@@ -341,7 +341,7 @@ function EmployeeReportTMS({ employeeId }) {
       setLoadingUpcomingTasks(true);
 
       const res = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasks/employee/${employeeId}/upcoming-tasks`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasks/employee/${employeeId}/upcoming-tasks`,
       );
 
       if (res.data.success) {
@@ -374,7 +374,7 @@ function EmployeeReportTMS({ employeeId }) {
       setLoadingTeam(true);
 
       const res = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/employee/${employeeId}/teams`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/employee/${employeeId}/teams`,
       );
 
       if (res.data.success) {

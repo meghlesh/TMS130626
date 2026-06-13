@@ -143,7 +143,7 @@ useEffect(() => {
       }
 
       const response = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/resignation/manager/${managerId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/resignation/manager/${managerId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -201,7 +201,7 @@ useEffect(() => {
       }
 
       const response = await axios.delete(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/cancel/resignation/${resignationId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/cancel/resignation/${resignationId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },
@@ -242,7 +242,7 @@ useEffect(() => {
       };
 
       const response = await axios.put(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/resignation/${selected.originalData.resignationId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/resignation/${selected.originalData.resignationId}`,
         payload,
         {
           headers: {
@@ -292,7 +292,7 @@ useEffect(() => {
       const token = getToken();
 
       const response = await axios.post(
-        "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/resignation/apply",
+        "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/resignation/apply",
         {
           reason: applyForm.reason,
           comments: applyForm.comments,
@@ -325,7 +325,7 @@ useEffect(() => {
       if (!empId) return;
 
       const response = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/resignation/${empId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/resignation/${empId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

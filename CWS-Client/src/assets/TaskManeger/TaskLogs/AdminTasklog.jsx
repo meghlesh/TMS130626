@@ -190,7 +190,7 @@ const AdminTasklog = ({ user }) => {
         const dateStr = d.toISOString().split("T")[0];
 
         const res = await axios.get(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/daily-workload?date=${dateStr}`,
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/daily-workload?date=${dateStr}`,
           { headers: { Authorization: `Bearer ${token}` } },
         );
 
@@ -255,7 +255,7 @@ const AdminTasklog = ({ user }) => {
       const token = localStorage.getItem("accessToken");
 
       const res = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/daily-workload?date=${selectedDate}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/daily-workload?date=${selectedDate}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },
@@ -276,13 +276,13 @@ const AdminTasklog = ({ user }) => {
       let url = "";
 
       if (workloadDate) {
-        url = `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/daily-workload?date=${workloadDate}`;
+        url = `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/daily-workload?date=${workloadDate}`;
       } else if (workloadWeek) {
         const weekStartDate = getStartDateOfWeek(workloadWeek);
-        url = `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/workload/weekly?date=${weekStartDate}`;
+        url = `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/workload/weekly?date=${weekStartDate}`;
       } else if (workloadMonth) {
         const [year, month] = workloadMonth.split("-");
-        url = `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/workload/monthly?year=${year}&month=${month}`;
+        url = `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/workload/monthly?year=${year}&month=${month}`;
       } else {
         console.warn("No filter selected");
         return;
@@ -416,7 +416,7 @@ const AdminTasklog = ({ user }) => {
   const fetchLogs = async () => {
     try {
       const token = localStorage.getItem("accessToken");
-      const logRes = await fetch(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/`, {
+      const logRes = await fetch(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const logsData = await logRes.json();

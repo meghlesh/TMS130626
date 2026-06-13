@@ -194,7 +194,7 @@ const EmployeeTasklog = ({ user }) => {
       const token = localStorage.getItem("accessToken");
 
       const logRes = await fetch(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/employee/${user._id}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/employee/${user._id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -205,7 +205,7 @@ const EmployeeTasklog = ({ user }) => {
       const logsData = await logRes.json();
 
       const taskRes = await fetch(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/tasks/assigned/${user._id}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/tasks/assigned/${user._id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -245,7 +245,7 @@ const EmployeeTasklog = ({ user }) => {
     if (!confirmDelete) return;
     
     try {
-      const response = await fetch(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/${logId}`, {
+      const response = await fetch(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/${logId}`, {
         method: "DELETE",
         headers: {
           "Authorization": `Bearer ${token}`,
@@ -496,8 +496,8 @@ const EmployeeTasklog = ({ user }) => {
       };
 
       const endpoint = editIndex !== null
-        ? `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/${editIndex}`
-        : "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/";
+        ? `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/${editIndex}`
+        : "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/tasklogs/";
 
       const method = editIndex !== null ? "PUT" : "POST";
 

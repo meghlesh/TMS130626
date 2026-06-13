@@ -227,7 +227,7 @@ const MangerTaskTMS = ({ role }) => {
   const fetchTaskComments = async (taskId) => {
     setCommentLoading(true);
     try {
-      const response = await axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/${taskId}/comments`);
+      const response = await axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/${taskId}/comments`);
       setTaskComments(response.data.comments || []);
     } catch (error) {
       console.error("Error fetching comments:", error);
@@ -258,7 +258,7 @@ const MangerTaskTMS = ({ role }) => {
     try {
       const token = localStorage.getItem("accessToken");
       const res = await axios.post(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/${commentModalTask._id}/comment`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/${commentModalTask._id}/comment`,
         { comment: newComment },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -282,7 +282,7 @@ const MangerTaskTMS = ({ role }) => {
     try {
       const token = localStorage.getItem("accessToken");
       const res = await axios.delete(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/${taskId}/comment/${commentId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/${taskId}/comment/${commentId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -302,7 +302,7 @@ const MangerTaskTMS = ({ role }) => {
     try {
       const token = localStorage.getItem("accessToken");
       const res = await axios.put(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/${taskId}/comment/${commentId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/${taskId}/comment/${commentId}`,
         { comment: newText },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -344,7 +344,7 @@ const MangerTaskTMS = ({ role }) => {
   async function fetchUser() {
     try {
       const token = localStorage.getItem("accessToken");
-      const response = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/me", {
+      const response = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/me", {
         headers: { Authorization: `Bearer ${token}` },
       });
       return response.data;
@@ -359,7 +359,7 @@ const MangerTaskTMS = ({ role }) => {
       try {
         const token = localStorage.getItem("accessToken");
         if (token) {
-          const response = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/me", {
+          const response = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/me", {
             headers: { Authorization: `Bearer ${token}` },
           });
           setCurrentUser(response.data);
@@ -378,7 +378,7 @@ const MangerTaskTMS = ({ role }) => {
       const user = await fetchUser();
       const managerId = user._id;
 
-      const res = await axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/manager/emp/task/${managerId}/`, {
+      const res = await axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/manager/emp/task/${managerId}/`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -448,7 +448,7 @@ const MangerTaskTMS = ({ role }) => {
 
   const fetchStatuses = async () => {
     try {
-      const res = await axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/unique`);
+      const res = await axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/unique`);
       if (res.data.success) {
         const normalized = res.data.data.map(s => ({
           _id: s._id || s.id,
@@ -477,16 +477,16 @@ const MangerTaskTMS = ({ role }) => {
         const token = localStorage.getItem("accessToken");
         const user = await fetchUser();
         
-        const res = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getAllDepartments");
+        const res = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getAllDepartments");
         const departments = res.data.departments;
         const normalizedDepartments = departments.map((d) => normalizeDepartment(d));
         const uniqueDepartments = [...new Set(normalizedDepartments)];
         setDepartment(uniqueDepartments);
         
-        const taskTypeRes = await axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/task-types/unique-names`);
+        const taskTypeRes = await axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/task-types/unique-names`);
         setTaskType(taskTypeRes.data.taskTypes || []);
         
-        const projectRes = await axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/projects/unique-names/${user._id}`);
+        const projectRes = await axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/projects/unique-names/${user._id}`);
         setProject(projectRes.data.projects || []);
       } catch (err) {
         console.error(err);
@@ -504,7 +504,7 @@ const MangerTaskTMS = ({ role }) => {
   useEffect(() => {
     const fetchWeeklyOffs = async () => {
       try {
-        const res = await axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/admin/weeklyoff/${new Date().getFullYear()}`);
+        const res = await axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/admin/weeklyoff/${new Date().getFullYear()}`);
         const weeklyData = res.data?.data || {};
         const saturdayOffs = weeklyData.saturdays || [];
         setWeeklyOffs({ saturdays: saturdayOffs, sundayOff: true });

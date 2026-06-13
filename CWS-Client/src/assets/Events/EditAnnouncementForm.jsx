@@ -75,7 +75,7 @@ function EditAnnouncementForm({ data, onClose, onUpdate }) {
   //   if (image) formData.append("image", image);
 
   //   const res = await axios.put(
-  //     `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/announcements/${data._id}`,
+  //     `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/announcements/${data._id}`,
   //     formData,
   //     { headers: { Authorization: `Bearer ${token}` } }
   //   );
@@ -95,7 +95,7 @@ function EditAnnouncementForm({ data, onClose, onUpdate }) {
       if (image) formData.append("image", image);
 
       const res = await axios.put(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/announcements/${data._id}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/announcements/${data._id}`,
         formData,
         { headers: { Authorization: `Bearer ${token}` } },
       );

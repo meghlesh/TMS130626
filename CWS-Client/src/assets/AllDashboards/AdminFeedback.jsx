@@ -25,7 +25,7 @@ const AdminFeedback = () => {
 
   const fetchAllFeedbacks = async () => {
     try {
-      const response = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/feedback/all");
+      const response = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/feedback/all");
 
       if (response.data && response.data.success) {
         const allFeedbacks = (response.data.feedbacks || []).map((fb) => {
@@ -200,7 +200,7 @@ const AdminFeedback = () => {
         return;
       }
 
-      await axios.delete(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/feedback/delete/${id}`, {
+      await axios.delete(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/feedback/delete/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

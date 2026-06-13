@@ -24,7 +24,7 @@ function AddPolicyPage() {
       if (file) {
         formData.append("pdf", file); // rutuja 03-04-26
       }
-      await axios.post("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/policy/create", formData);
+      await axios.post("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/policy/create", formData);
 
       alert("Policy created successfully");
       navigate(-1);

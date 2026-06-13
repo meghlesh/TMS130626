@@ -24,7 +24,7 @@ function AdminTypeOfStatus() {
   //  Fetch all statuses
   const fetchStatuses = async () => {
     try {
-      const res = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/taskstatus/all");
+      const res = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/taskstatus/all");
       setStatuses(res.data.statuses || []);
     } catch (error) {
       console.error("Failed to fetch statuses");
@@ -73,7 +73,7 @@ function AdminTypeOfStatus() {
     try {
       setLoading(true);
 
-      await axios.put(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/taskstatus/update/${editId}`, {
+      await axios.put(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/taskstatus/update/${editId}`, {
         name: newName.trim(),
         description: newDesc?.trim() || "",
       });
@@ -97,7 +97,7 @@ function AdminTypeOfStatus() {
     if (!window.confirm("Are you sure you want to delete this status?")) return;
 
     try {
-      await axios.delete(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/taskstatus/delete/${id}`);
+      await axios.delete(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/taskstatus/delete/${id}`);
       alert("Task status deleted successfully");
       fetchStatuses(); // refresh list
     } catch (error) {
@@ -118,7 +118,7 @@ function AdminTypeOfStatus() {
 
     try {
       setLoading(true);
-      await axios.post("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/taskstatus/add", {
+      await axios.post("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/taskstatus/add", {
         name: newName,
         description: newDesc,
       });

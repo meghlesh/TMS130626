@@ -21,11 +21,11 @@
 //     const fetchData = async () => {
 //       try {
 //         const [attRes, leaveRes, weeklyRes, holidayRes, regRes] = await Promise.all([
-//           axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/${employeeId}`),
-//           axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/my/${employeeId}`),
-//           axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/admin/weeklyoff/${new Date().getFullYear()}`),
-//           axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getHolidays`),
-//           axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/regularization/my/${employeeId}`),
+//           axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/${employeeId}`),
+//           axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/my/${employeeId}`),
+//           axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/admin/weeklyoff/${new Date().getFullYear()}`),
+//           axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getHolidays`),
+//           axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/regularization/my/${employeeId}`),
 //         ]);
 
 //         setWeeklyOff(weeklyRes.data.data?.saturdays || []);
@@ -252,14 +252,14 @@ function MyAttendanceCalendar({ employeeId }) {
       try {
         const [attRes, leaveRes, weeklyRes, holidayRes, regRes] =
           await Promise.all([
-            axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/${employeeId}`),
-            axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/my/${employeeId}`),
+            axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/${employeeId}`),
+            axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/my/${employeeId}`),
             axios.get(
-              `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/admin/weeklyoff/${new Date().getFullYear()}`,
+              `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/admin/weeklyoff/${new Date().getFullYear()}`,
             ),
-            axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getHolidays`),
+            axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getHolidays`),
             axios.get(
-              `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/regularization/my/${employeeId}`,
+              `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/regularization/my/${employeeId}`,
             ),
             
           ])

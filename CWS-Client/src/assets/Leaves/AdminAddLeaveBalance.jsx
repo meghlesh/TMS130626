@@ -141,7 +141,7 @@ const actionModalRef = useRef(null);
     if (!token) return;
 
     axios
-      .get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/me", {
+      .get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/me", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => setUser(res.data))
@@ -157,7 +157,7 @@ const actionModalRef = useRef(null);
         try {
           if (!leave.employee?._id) continue;
           const res = await axios.post(
-            "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/calculate",
+            "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/calculate",
             {
               // employeeId: leave.employee,
               employeeId: leave.employee?._id,
@@ -188,7 +188,7 @@ const actionModalRef = useRef(null);
     if (!user) return;
      setLoadingLeaves(true);
     axios
-      .get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leaves")
+      .get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leaves")
       .then((res) => {
         const filteredByAdmin = res.data.filter(
           (l) => l.employee?.employeeId !== user?.employeeId,
@@ -222,7 +222,7 @@ const actionModalRef = useRef(null);
     }
   
     try {
-      const response = await axios.put(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/${leaveId}/status`, {
+      const response = await axios.put(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/${leaveId}/status`, {
         status,
         userId: user._id,
         role: "admin",
@@ -301,7 +301,7 @@ const actionModalRef = useRef(null);
   const fetchYearlySettings = async () => {
     try {
       const res = await axios.get(
-        "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/yearly-settings",
+        "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/yearly-settings",
       );
       setData(res.data);
     } catch (err) {
@@ -315,7 +315,7 @@ const actionModalRef = useRef(null);
 
   const grantYearly = async () => {
     try {
-      const res = await axios.post("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/grant-yearly", {
+      const res = await axios.post("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/grant-yearly", {
         sl,
         cl,
       });
@@ -346,7 +346,7 @@ const actionModalRef = useRef(null);
   const grantMonthly = async () => {
     try {
       const res = await axios.post(
-        "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/grant-monthly",
+        "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/grant-monthly",
         {
           sl,
           cl,
@@ -363,7 +363,7 @@ const actionModalRef = useRef(null);
 
   const fetchLeaveBalance = async () => {
     try {
-      const res = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/balance");
+      const res = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/balance");
       console.log("data", res.data);
     } catch (err) {
       console.error("Error fetching leave balance:", err);
@@ -396,7 +396,7 @@ const actionModalRef = useRef(null);
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/${leaveId}`);
+      await axios.delete(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/${leaveId}`);
 
       // ✅ Remove the deleted leave from state
       const updatedLeaves = leaves.filter((l) => l._id !== leaveId);
@@ -424,7 +424,7 @@ fetchNotifications();
     }
 
     try {
-      const res = await axios.delete("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/reset-all");
+      const res = await axios.delete("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/reset-all");
       alert(res.data.message);
       setData([]); // clear yearly table instantly
     } catch (err) {

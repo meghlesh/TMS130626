@@ -17,7 +17,7 @@ const ProbationReminderPopup = ({ user, role, username, id, onClose }) => {
 
       try {
         const token = localStorage.getItem("accessToken");
-        const res = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/admin/probation-reminder", {
+        const res = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/admin/probation-reminder", {
           headers: { Authorization: `Bearer ${token}` }
         });
         

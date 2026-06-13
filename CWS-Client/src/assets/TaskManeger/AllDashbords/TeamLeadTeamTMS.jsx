@@ -81,11 +81,11 @@ const TeamLeadTeamTMS = ({ user }) => {
 
       Promise.all([
         // Fetch teams data
-        fetch(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/teams/user/${user._id}/teams`)
+        fetch(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/teams/user/${user._id}/teams`)
           .then((res) => res.json()),
         
         // Fetch members count for this team lead
-        fetch(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/${user._id}/members`)
+        fetch(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/${user._id}/members`)
           .then((res) => res.json())
           .catch(err => {
             console.warn("Members API failed:", err);
@@ -93,7 +93,7 @@ const TeamLeadTeamTMS = ({ user }) => {
           }),
         
         // Fetch departments
-        axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getAllDepartments"),
+        axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getAllDepartments"),
       ])
         .then(([teamRes, membersRes, deptRes]) => {
           if (!teamRes.success) return;

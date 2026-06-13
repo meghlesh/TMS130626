@@ -89,7 +89,7 @@ function TlProjectTMS({ user }) {
 
   useEffect(() => {
     axios
-      .get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/managers/list")
+      .get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/managers/list")
       .then((res) => {
         console.log("Managers fetched:", res.data);
         setManagerList(res.data);
@@ -101,7 +101,7 @@ function TlProjectTMS({ user }) {
 
   const fetchTLProjects = async () => {
     try {
-      const res = await axios.get(`api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/${user._id}/projects`);
+      const res = await axios.get(`https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/${user._id}/projects`);
       
       const transformedProjects = res.data.projects.map(item => ({
         _id: item.project._id,
@@ -364,7 +364,7 @@ useEffect(() => {
     setCommentLoading(true);
     try {
       const response = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/project/${projectId}/comments`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/project/${projectId}/comments`,
       );
       setProjectComments(response.data.comments || []);
     } catch (error) {
@@ -388,7 +388,7 @@ useEffect(() => {
 
     try {
       const res = await axios.post(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/project/${commentModalProject._id}/comment`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/project/${commentModalProject._id}/comment`,
         { comment: newComment },
         {
           headers: {
@@ -428,7 +428,7 @@ useEffect(() => {
 
     try {
       const res = await axios.delete(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/project/${projectId}/comment/${commentId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/project/${projectId}/comment/${commentId}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -454,7 +454,7 @@ useEffect(() => {
 
     try {
       const res = await axios.put(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/project/${projectId}/comment/${commentId}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/project/${projectId}/comment/${commentId}`,
         { comment: newText },
         {
           headers: {

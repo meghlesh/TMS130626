@@ -155,7 +155,7 @@ function HrPolicy() {
     if (statusPolicy) {
       axios
         .get(
-          `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/policy/read-employees/${statusPolicy._id}`
+          `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/policy/read-employees/${statusPolicy._id}`
         )
         .then((res) => {
           setReadEmployees(res.data.data);
@@ -171,7 +171,7 @@ function HrPolicy() {
         const token = localStorage.getItem("accessToken");
 
         const res = await axios.get(
-          "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getAllEmployees",
+          "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getAllEmployees",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -194,7 +194,7 @@ function HrPolicy() {
   const fetchReadEmployees = async (policyId) => {
     try {
       const res = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/policy/read-employees/${policyId}`
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/policy/read-employees/${policyId}`
       );
 
       if (res.data.success) {

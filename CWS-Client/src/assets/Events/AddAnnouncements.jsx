@@ -141,7 +141,7 @@ const modalRef = useRef(null);
       formData.append("image", image);
 
       const response = await axios.post(
-        "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/announcements/",
+        "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/announcements/",
         formData,
         {
           headers: {

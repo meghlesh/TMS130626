@@ -181,12 +181,12 @@ useEffect(() => {
   const fetchData = async () => {
     try {
       const leavesRes = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/team-leader/${user._id}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/team-leader/${user._id}`,
       );
       setLeaves(leavesRes.data.leaves || []);
       
       const regRes = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/regularization/team-leader/${user._id}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/regularization/team-leader/${user._id}`,
       );
   
       // ✅ Get the requests array from response
@@ -291,7 +291,7 @@ useEffect(() => {
     }
 
     await axios.put(
-      `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/${leaveId}/status`,
+      `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/leave/${leaveId}/status`,
       {
         status,
         userId: user._id,
@@ -327,7 +327,7 @@ useEffect(() => {
       localStorage.getItem("accessToken");
 
     await axios.put(
-      `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/regularization/${attendanceId}/status`,
+      `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/regularization/${attendanceId}/status`,
       {
         status,
         actionReason:

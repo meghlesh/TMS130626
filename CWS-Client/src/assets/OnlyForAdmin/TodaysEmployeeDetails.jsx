@@ -160,7 +160,7 @@ const [appliedAbsentSearch, setAppliedAbsentSearch] = useState("");
       const today = new Date().toISOString().split("T")[0];
 
       const res = await axios.get(
-        `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/break/admin/${emp._id}?date=${today}`,
+        `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/break/admin/${emp._id}?date=${today}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -572,7 +572,7 @@ const fetchLateCheckInHistory = async () => {
   try {
     const token = localStorage.getItem("accessToken");
     const res = await axios.get(
-      `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/late-checkins`,
+      `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/late-checkins`,
       {
         params: {
           from: fromDate,
@@ -2607,7 +2607,7 @@ textField: {
   const token = localStorage.getItem("accessToken");
 
   const leaveRes = await axios.get(
-    "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/on-leave-employees",
+    "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/on-leave-employees",
     {
       params: {
         date: leaveDate || undefined,
@@ -2637,7 +2637,7 @@ onClick={async () => {
   const token = localStorage.getItem("accessToken");
 
   const leaveRes = await axios.get(
-    "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/on-leave-employees",
+    "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/attendance/on-leave-employees",
     {
       headers: {
         Authorization: `Bearer ${token}`,

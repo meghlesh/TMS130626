@@ -101,7 +101,7 @@ function EmployeePerformances() {
     if (!userId || !role) return;
 
     fetch(
-      `api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/performance/employee?userId=${userId}&role=${role}`,
+      `https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/performance/employee?userId=${userId}&role=${role}`,
     )
       .then((res) => res.json())
       .then((res) => {

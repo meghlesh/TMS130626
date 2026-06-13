@@ -375,7 +375,7 @@ function AdminReportTMS() {
 
   useEffect(() => {
     const fetchTasks = async () => {
-      const res = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/getall");
+      const res = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/getall");
       setAllTasks(res.data || []);
     };
 
@@ -489,7 +489,7 @@ function AdminReportTMS() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/projects");
+        const res = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/projects");
         setProjects(res.data?.data || res.data || []);
       } catch (err) {
         console.error("Project fetch error:", err);
@@ -599,15 +599,15 @@ function AdminReportTMS() {
       const token = localStorage.getItem("accessToken");
       console.log("token", token);
       const EmpResponse = await axios.get(
-        "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getAllEmployees",
+        "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/getAllEmployees",
         {
           headers: { Authorization: `Bearer ${token}` },
         },
       );
       const projectResponse = await axios.get(
-        "api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/projects/",
+        "https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/api/projects/",
       );
-      const taskResponse = await axios.get("api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/getall");
+      const taskResponse = await axios.get("https://api-emsdev-be-epb9fbg0e7ewese6.southindia-01.azurewebsites.net/task/getall");
       const tasks = taskResponse.data.map(
         ({ _id, taskName, assignedTo, dateOfExpectedCompletion }) => ({
           _id,
