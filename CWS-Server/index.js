@@ -83,7 +83,6 @@ app.use("/uploads", express.static("uploads"));
 
 const allowedOrigins = [
   "https://www.creativewebsolution.info",
-  "https://app-emsdev-fe-btcaabghdmdae0c9.southindia-01.azurewebsites.net",
 ];
 
 app.use((req, res, next) => {
@@ -769,7 +768,7 @@ console.log("Calculated probationEndDate:", probationEndDate);
       newEmployee.verifyToken = token;
       await newEmployee.save();
 
-      const verifyLink = `https://app-emsdev-fe-btcaabghdmdae0c9.southindia-01.azurewebsites.net/employee/verify/${
+      const verifyLink = `https://www.creativewebsolution.info/employee/verify/${
         newEmployee._id
       }/${encodeURIComponent(token)}`;
 
@@ -1807,7 +1806,7 @@ app.post("/sendpasswordlink", async (req, res) => {
       { new: true },
     );
     //console.log("setusertoken",setusertoken)
-    const forLink = `https://app-emsdev-fe-btcaabghdmdae0c9.southindia-01.azurewebsites.net/forgotpassword/${userfind._id}/${setusertoken.verifytoken}`;
+    const forLink = `https://www.creativewebsolution.info/forgotpassword/${userfind._id}/${setusertoken.verifytoken}`;
     const resetPasswordHtml = await rePasswordTemplate(forLink);
 
     if (setusertoken) {
