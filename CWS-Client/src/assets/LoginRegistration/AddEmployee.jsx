@@ -919,7 +919,7 @@ const AddEmployee = () => {
                             className="form-control"
                             name="email"
                             value={formData.email}
-                            maxLength={30}
+                            maxLength={50}
                             onChange={handleChange}
                             required
                           />
